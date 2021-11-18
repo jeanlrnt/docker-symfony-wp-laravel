@@ -5,7 +5,7 @@ SHELL = /bin/sh
 
 CURRENT_UID := $(shell id -u)
 
-SUPPORTED_COMMANDS := newSF newWP newPHP remove dump rename
+SUPPORTED_COMMANDS := newSF newWP newPHP newLR remove dump rename
 SUPPORTS_MAKE_ARGS := $(findstring $(firstword $(MAKECMDGOALS)), $(SUPPORTED_COMMANDS))
 ifneq "$(SUPPORTS_MAKE_ARGS)" ""
   NOM := $(wordlist 2,2,$(MAKECMDGOALS))
@@ -22,7 +22,7 @@ DK := USERID=$(CURRENT_UID) $(DKC)
 
 CURRENT_TIME := $(shell date "+%Y%m%d%H%M")
 
-.PHONY: rename build preNew postNew newSF newPHP newWP up down cleanAll help removeSF removePHP removeWP check_clean bash dump list updatePhp
+.PHONY: rename build preNew postNew newSF newPHP newWP newLR up down cleanAll help removeSF removePHP removeWP check_clean bash dump list updatePhp
 
 .DEFAULT_GOAL := help
 
@@ -91,6 +91,21 @@ ifdef NOM
 	@sed -E 's/xxxxxx/$(NOM)/' ./virtualhosts/php.conf.sample >  ./virtualhosts/$(NOM).conf
 	@make postNew
 else 
+	@echo "il faut ajouter le nom du projet à la commande"
+endif
+
+newLR: ## Crée un nouveau projet Laravel : make newLR mon_projet_Laravel
+ifdef NOM
+	@make preNew
+	@echo "création du projet Laravel $(NOM)"
+	@$(DK) exec php composer create-project laravel/laravel $(NOM)
+	@echo "configuration de la base de données via .env.local"
+	@echo "DATABASE_URL=mysql://root:root@db:3306/$(NOM)?serverVersion=mariadb-10.4.14" > $(APP_PATH)/$(NOM)/.env.local
+	@make down
+	@echo "création du virtualhost"
+	@sed -E 's/xxxxxx/$(NOM)/' ./virtualhosts/laravel.conf.sample >  ./virtualhosts/$(NOM).conf
+	@make postNew
+else
 	@echo "il faut ajouter le nom du projet à la commande"
 endif
 
