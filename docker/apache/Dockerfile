@@ -1,7 +1,7 @@
 FROM httpd:2.4
-
-LABEL maintainer="Nicolas TRUGEON <nicolas.trugeon@univ-lr.fr>"
 ARG UID
+
+LABEL maintainer="Jean LAURENT <jeanz.laurent@gmail.com>"
 
 RUN echo "Include conf/sites/*.conf" >> /usr/local/apache2/conf/httpd.conf
 

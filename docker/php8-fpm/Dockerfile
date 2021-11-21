@@ -1,8 +1,7 @@
-# lp2021 --> php8.0
 FROM nicolasunivlr/php:lp2021
 ARG UID
 
-LABEL maintainer="Nicolas TRUGEON <nicolas.trugeon@univ-lr.fr>"
+LABEL maintainer="Jean LAURENT <jeanz.laurent@gmail.com>"
 
 RUN touch /usr/local/etc/php/conf.d/max.ini && echo "max_execution_time = 120;" >> /usr/local/etc/php/conf.d/max.ini
 

@@ -1,8 +1,7 @@
 FROM mariadb:10.4
-
-LABEL maintainer="Nicolas TRUGEON <nicolas.trugeon@univ-lr.fr>"
-
 ARG UID
+
+LABEL maintainer="Jean LAURENT <jeanz.laurent@gmail.com>"
 
 RUN usermod -u ${UID} mysql; groupmod -g ${UID} mysql;
 
