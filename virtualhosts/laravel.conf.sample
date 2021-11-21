@@ -1,4 +1,4 @@
-### Symfony
+### Laravel
 <VirtualHost *:80>
     DocumentRoot /var/www/docker/xxxxxx/public
     DirectoryIndex index.php

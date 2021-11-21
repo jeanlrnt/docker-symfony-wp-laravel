@@ -39,3 +39,15 @@ services:
             - ${APP_PATH}:/var/www/docker
             - ./logs/apache2/:/usr/local/apache2/logs
             - ./virtualhosts/:/usr/local/apache2/conf/sites
+    mailcatcher:
+        image: 'dockage/mailcatcher:0.7.1'
+        restart: 'always'
+        ports:
+            - '1080:1080'
+
+    phpmyadmin:
+        image: 'phpmyadmin/phpmyadmin'
+        links:
+            - db
+        ports:
+            - '8080:80'

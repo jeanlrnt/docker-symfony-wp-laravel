@@ -22,7 +22,7 @@ DK := USERID=$(CURRENT_UID) $(DKC)
 
 CURRENT_TIME := $(shell date "+%Y%m%d%H%M")
 
-.PHONY: rename build preNew postNew newSF newPHP newWP newLR up down cleanAll help removeSF removePHP removeWP check_clean bash dump list updatePhp
+.PHONY: rename build preNew postNew newSF newPHP newWP newLR up down cleanAll help removeSF removePHP removeWP removeLR check_clean bash dump list updatePhp
 
 .DEFAULT_GOAL := help
 
@@ -36,8 +36,10 @@ list: ## Liste tous les projets existants
 	@grep -rnw --include=\*.conf 'virtualhosts' -e 'Wordpress' | cut -d/ -f2 | cut -d. -f1
 	@echo "---Projets Php---"
 	@grep -rnw --include=\*.conf 'virtualhosts' -e 'PHP' | cut -d/ -f2 | cut -d. -f1
+	@echo "---Projets Laravel---"
+	@grep -rnw --include=\*.conf 'virtualhosts' -e 'Laravel' | cut -d/ -f2 | cut -d. -f1
 
-rename: ## Renomme un projet (Symfony, WP, Php) et sa BD : make rename ancien_nom nouveau_nom
+rename: ## Renomme un projet (Symfony, WP, Php, Laravel) et sa BD : make rename ancien_nom nouveau_nom
 ifneq ($(and $(NOM),$(NOM2)),)
 	@make up
 	@echo "Renommage de la base de données"
