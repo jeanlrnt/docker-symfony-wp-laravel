@@ -80,7 +80,29 @@ credsStore:""
 
     4. Sous **windows**, ouvrir le dossier symfony du projet dans phpStorm. Il va reconnaître automatiquement le WSL et le termnianl sera par défaut sous debian ;)
 
-5. **Installer Wordpress**
+5. **Installer Laravel**
+    1. Toujours sous **debian**, on installe laravel en version minimale grâce au Makefile.
+        
+        ```bash
+        $ make newLR nom_de_mon_projet
+        ```
+        - cela va créer le projet via composer, un virtualhost ainsi qu'une base de données dédiée
+
+    2.  On installe les composants nécessaires à nos applications également avec Composer
+
+        ```bash
+        $ make bash
+        $ cd nom_de_mon_projet
+        $ composer update
+        ```
+    
+    3. Sous **windows** avec votre editeur de texte favori
+       - Modifiez le fichier C:\Windows\System32\drivers\etc\hosts en ajoutant à la dernière ligne :
+          >  127.0.01    nom_de_mon_projet.localhost
+
+    4. Sous **windows**, ouvrir le dossier laravel du projet dans phpStorm. Il va reconnaître automatiquement le WSL et le termnianl sera par défaut sous debian ;)
+   
+6. **Installer Wordpress**
    1.  Toujours sous **debian**, on installe wordpress grâce au Makefile.
         
         ```bash
