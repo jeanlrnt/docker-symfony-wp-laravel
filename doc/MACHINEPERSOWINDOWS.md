@@ -45,9 +45,9 @@ credsStore:""
 1. Placez vous dans la machine **debian**
 2. Dupliquer le projet :
     ```bash
-    git clone https://gitlab.univ-lr.fr/ntrugeon/docker-symfony-wp-2021.git devPhpLP
+    git clone https://github.com/jeanlrnt/docker-symfony-wp-laravel.git devPhp
     # on se place dans le bon dossier
-    cd devPhpLP
+    cd devPhp
     ```
 
 3. Construire et exécuter les conteneurs (Cela peut prendre un peu de temps)
