@@ -11,9 +11,9 @@
 
 1. Dupliquer le projet :
     ```bash
-    git clone https://gitlab.univ-lr.fr/ntrugeon/docker-symfony-wp-2021.git devPhpLP
+    git clone https://github.com/jeanlrnt/docker-symfony-wp-laravel.git devPhp
     # on se place dans le bon dossier
-    cd devPhpLP
+    cd devPhp
     ```
 
 2. Construire et exécuter les conteneurs (Cela peut prendre un peu de temps)
@@ -42,7 +42,26 @@
     
     3. Ouvrir le dossier symfony du projet dans phpStorm
 
-4. Installer Wordpress
+4. Installer Laravel
+    1. On installe laravel en version minimale grâce au Makefile.
+        
+        ```bash
+        $ make newLR nom_de_mon_projet
+        ```
+        - cela va créer le projet via composer, un virtualhost ainsi qu'une base de données dédiée
+
+    2. On installe les composants nécessaires à nos applications également avec Composer
+
+        ```bash
+        $ make bash
+        $ cd nom_de_mon_projet
+        $ composer update
+        ```
+    
+    3. Ouvrir le dossier laravel du projet dans phpStorm
+
+
+5. Installer Wordpress
    1.  On installe wordpress grâce au Makefile.
         
         ```bash
@@ -54,7 +73,7 @@
       - en recopiant les informations de https://roots.io/salts.html dans la partie concernée (AUTH_KEY, SECURE_AUTH_KEY, ...)
       - en précisant le suffixe des tables : décommentez la variable DB_PREFIX et mettez le préfixe de votre choix.
 
-5. C'est parti :-)
+6. C'est parti :-)
 
 ## Je commence à travailler sur un projet
 
