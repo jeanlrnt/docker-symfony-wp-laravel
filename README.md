@@ -2,8 +2,8 @@
 
 Cet environnement correspond à l'environnement de production du serveur lpmiaw.univ-lr.fr (Ubuntu 20.04) à savoir :
 
-    - php 8.0
-    - mariadb 10.4
+    - php 8.2
+    - mariadb 10.7
     - apache 2.4
 
 Docker-Symfony-WP vous donne tout ce que vous avez besoin pour développer des applications sous Symfony 5 et sous wordpress avec BedRocks.

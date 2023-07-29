@@ -1,4 +1,4 @@
-FROM mariadb:10.4
+FROM mariadb:10.7
 ARG UID
 
 LABEL maintainer="Jean LAURENT <jeanz.laurent@gmail.com>"

@@ -27,7 +27,7 @@ services:
         user: ${USERID}
         volumes:
             - ${APP_PATH}:/var/www/docker
-            
+
     web:
         build:
             context: docker/apache
