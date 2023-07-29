@@ -6,3 +6,4 @@
 !/virtualhosts/*.sample
 /.docker-sync/
 .idea/
+/dumps/
